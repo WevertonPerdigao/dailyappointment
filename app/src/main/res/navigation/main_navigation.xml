@@ -15,4 +15,9 @@
         tools:layout="@layout/fragment_hello" />
 
 
+    <fragment
+        android:id="@+id/nav_teste"
+        android:name="com.andersonk.androidcourse.fragments.HelloFragment"
+        tools:layout="@layout/fragment_teste" />
+
 </navigation>

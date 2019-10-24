@@ -3,6 +3,9 @@ package com.andersonk.androidcourse
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.andersonk.androidcourse.fragments.HelloFragment
 import com.andersonk.androidcourse.fragments.StackFragment
 import com.andersonk.androidcourse.fragments.TesteFragment
@@ -13,44 +16,20 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private val mainNavController: NavController? by lazy {
+        findNavController(R.id.fragment)
+        // fragment do menu
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        val stackFragment = StackFragment()
-        val helloFragment = HelloFragment()
-        val testeFragment = TesteFragment()
 
-
-        nav.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.nav_stack -> {
-                    replaceFragment(stackFragment)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.nav_hello -> {
-                    replaceFragment(helloFragment)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.nav_teste -> {
-                    replaceFragment(testeFragment)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                else -> {
-                    return@setOnNavigationItemSelectedListener false
-                }
-            }
-
-        }
-
-    }
-
-
-    fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.frame, fragment, fragment::javaClass.toString()).commit()
+        //nav do menu
+        mainNavController?.let { nav.setupWithNavController(it) }
 
     }
 
