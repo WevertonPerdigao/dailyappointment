@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/nav_home"
+    >
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.e.revisaoapp.fragments.HomeFragment"
+        tools:layout="@layout/home_fragment" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.e.revisaoapp.fragments.SettingsFragment"
+        tools:layout="@layout/settings_fragment" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.e.revisaoapp.fragments.ProfileFragment"
+        tools:layout="@layout/profile_fragment" />main
+</navigation>
