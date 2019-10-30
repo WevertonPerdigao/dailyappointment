@@ -19,12 +19,10 @@
             android:text="@{viewModel.usuario.name2}" />
 
 
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{viewModel.usuario.email}" />
-
 
 
         <TextView
@@ -33,11 +31,13 @@
             android:text="@{viewModel.usuario.password}" />
 
 
-
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@={viewModel.usuario.name2}" />
+            android:afterTextChanged="@{viewModel.afterChanged}"
+            android:onTextChanged="@{viewModel.onChanged}"
+            android:text="@={viewModel.usuario.name2}"
+            android:textSize="16sp" />
 
         <EditText
             android:layout_width="match_parent"
@@ -49,6 +49,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@={viewModel.usuario.password}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel.buttonClick}" />
 
 
     </LinearLayout>
