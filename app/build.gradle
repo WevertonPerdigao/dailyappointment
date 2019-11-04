@@ -31,6 +31,8 @@ android {
 dependencies {
     def lifecycle_version = "2.0.0"
     def nav_version = "2.2.0-rc01"
+    def activity_version = "1.1.0-rc01"
+    def fragment_version = "1.2.0-rc01"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -45,4 +47,8 @@ dependencies {
     kapt 'com.android.databinding:compiler:3.1.4'
 
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    // Kotlin
+    implementation "androidx.activity:activity-ktx:$activity_version"
+    // Kotlin
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
 }
