@@ -3,11 +3,17 @@ package com.e.hiro
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
+import com.e.hiro.features.UserSessionViewModel
 import com.e.hiro.utlis.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var finalHost: NavHostFragment
+    private val viewModel: UserSessionViewModel by viewModels()
 
     private lateinit var bottomNavigationView: BottomNavigationView
     private var isLogged: Boolean = false
@@ -16,6 +22,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        viewModel.authenticationState.observe(this, Observer { authenticationState ->
+            when (authenticationState) {
+                UserSessionViewModel.AuthenticationState.AUTHENTICATED -> {
+                    supportFragmentManager.beginTransaction().remove(finalHost).commitNow()
+                    mainFlow()
+                }
+                UserSessionViewModel.AuthenticationState.UNAUTHENTICATED -> {
+                    loginFlow()
+                }
+            }
+        })
 
         bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
@@ -30,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun mainFlow() {
-
+        bottomNavigationView.visibility = View.VISIBLE
 
         val navGraphIds = listOf(R.navigation.home_graph, R.navigation.settings_graph)
 
@@ -38,13 +56,18 @@ class MainActivity : AppCompatActivity() {
         val controller = bottomNavigationView.setupWithNavController(
             navGraphIds = navGraphIds,
             fragmentManager = supportFragmentManager,
-            containerId = R.id.settings_graph,
+            containerId = R.id.host,
             intent = intent
         )
     }
 
     private fun loginFlow() {
-        val finalHost = NavHostFragment.create(R.navigation.login_graph)
+        bottomNavigationView.visibility = View.GONE
+
+        if (!::finalHost.isInitialized) {
+            finalHost = NavHostFragment.create(R.navigation.login_graph)
+        }
+
         supportFragmentManager.beginTransaction()
             .replace(R.id.host, finalHost)
             .setPrimaryNavigationFragment(finalHost) // this is the equivalent to app:defaultNavHost="true"

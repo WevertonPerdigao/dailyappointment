@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/pass_change_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pass_change_graph"
+    app:startDestination="@id/pass_change">
+
+
+    <fragment
+        android:id="@+id/pass_change"
+        android:name="com.e.hiro.features.pass_change.PassChangeFragment"
+        tools:layout="@layout/fragment_pass_change"/>
 
 </navigation>
