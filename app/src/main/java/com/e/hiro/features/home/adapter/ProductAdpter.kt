@@ -45,7 +45,9 @@ class ProductAdpter() : RecyclerView.Adapter<ProductAdpter.ProductHolder>() {
 
         fun setProduct(produto: Produto) {
 
-            view.name_project.text=produto.name.toString()
+            view.name_project.text = produto.name.toString()
+            view.url.text = produto.imageUrl.toString()
+            view.preco.text = produto.price.toString()
         }
 
     }

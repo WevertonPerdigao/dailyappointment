@@ -51,9 +51,16 @@ class HomeFragment : Fragment() {
         val produtos: MutableList<Produto> = mutableListOf()
 
 
-        produtos.add(
-            Produto(1, "tetse", 2, "URL")
-        )
+        produtos.add(Produto(1, "Produto 1", 2, "URL"))
+        produtos.add(Produto(1, "Produto 2", 2, "URL"))
+        produtos.add(Produto(1, "Produto 3", 2, "URL"))
+        produtos.add(Produto(1, "Produto 4", 2, "URL"))
+        produtos.add(Produto(1, "Produto 5", 2, "URL"))
+        produtos.add(Produto(1, "Produto 6", 2, "URL"))
+        produtos.add(Produto(1, "Produto 7", 2, "URL"))
+        produtos.add(Produto(1, "Produto 8", 2, "URL"))
+        produtos.add(Produto(1, "Produto 9", 2, "URL"))
+
         productAdpter.setProdutos(produtos)
 
 
