@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/publish_graph"
+    app:startDestination="@id/publish">
+
+    <fragment
+        android:id="@+id/publish"
+        android:name="com.e.hiro.features.publish.PublishFragment"
+        tools:layout="@layout/fragment_publish">
+
+        <action
+            android:id="@+id/nav_to_confirmation"
+            app:destination="@+id/confirmation_id"
+            app:popUpTo="@id/publish"/>
+
+    </fragment>
+
+
+    <dialog
+        android:id="@+id/confirmation_id"
+        android:name="com.e.hiro.features.publish.ConfirmationFragment" />
+
+</navigation>

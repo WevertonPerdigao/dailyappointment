@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     private fun mainFlow() {
         bottomNavigationView.visibility = View.VISIBLE
 
-        val navGraphIds = listOf(R.navigation.home_graph, R.navigation.settings_graph)
+        val navGraphIds = listOf(R.navigation.home_graph, R.navigation.settings_graph,R.navigation.publish_graph)
 
         // Setup the bottom navigation view with a list of navigation graphs
         val controller = bottomNavigationView.setupWithNavController(
@@ -73,4 +73,5 @@ class MainActivity : AppCompatActivity() {
             .setPrimaryNavigationFragment(finalHost) // this is the equivalent to app:defaultNavHost="true"
             .commit()
     }
+
 }

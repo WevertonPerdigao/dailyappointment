@@ -4,10 +4,14 @@
     <item
         android:id="@+id/home_graph"
         android:icon="@drawable/home"
-        android:title="Home"/>
+        android:title="Home" />
 
     <item
         android:id="@+id/settings_graph"
         android:icon="@drawable/settings"
-        android:title="Settings"/>
+        android:title="Settings" />
+    <item
+        android:id="@+id/publish_graph"
+        android:icon="@drawable/share"
+        android:title="Publish" />
 </menu>

@@ -2,19 +2,16 @@ package com.e.hiro.features.home
 
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.DataBindingUtil.setContentView
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.e.hiro.R
-import com.e.hiro.features.home.adapter.ProductAdpter
+import com.e.hiro.features.product.ProductAdpter
+import com.e.hiro.features.product.Produto
 import kotlinx.android.synthetic.main.content_produtos.*
-import kotlinx.android.synthetic.main.produto_item.*
 
 /**
  * A simple [Fragment] subclass.
@@ -56,6 +53,7 @@ class HomeFragment : Fragment() {
         produtos.add(Produto(1, "Produto 3", 2, "URL"))
         produtos.add(Produto(1, "Produto 4", 2, "URL"))
         produtos.add(Produto(1, "Produto 5", 2, "URL"))
+        produtos.add(Produto(1, "Produto 6", 2, "URL"))
         produtos.add(Produto(1, "Produto 6", 2, "URL"))
         produtos.add(Produto(1, "Produto 7", 2, "URL"))
         produtos.add(Produto(1, "Produto 8", 2, "URL"))

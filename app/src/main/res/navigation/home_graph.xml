@@ -8,5 +8,25 @@
     <fragment
         android:id="@+id/home"
         android:name="com.e.hiro.features.home.HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/nav_to_second"
+            app:destination="@+id/product_detail_fragment"
+            app:popUpTo="@id/home" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/product_detail_fragment"
+        android:name="com.e.hiro.features.product.ProductDetailFragment"
+        tools:layout="@layout/fragment_product_detail">
+        <argument
+            android:name="id"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+    </fragment>
+
+
 </navigation>

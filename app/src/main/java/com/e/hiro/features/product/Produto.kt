@@ -1,4 +1,4 @@
-package com.e.hiro.features.home
+package com.e.hiro.features.product
 
 data class Produto(
     val id: Int,
